@@ -1,8 +1,13 @@
-CONTIKI_PROJECT = trickle-library
+CONTIKI_PROJECT = trickle-library 
 
 all: $(CONTIKI_PROJECT)
+CONTIKI=../..
+WITH_COMPOWER=1
 
-CONTIKI = ../..
+ifdef WITH_COMPOWER
+APPS+=powertrace
+CFLAGS+= -DCONTIKIMAC_CONF_COMPOWER=1 -DWITH_COMPOWER=1 -DQUEUEBUF_CONF_NUM=4
+endif
 
 CONTIKI_WITH_IPV6 = 1
 include $(CONTIKI)/Makefile.include
