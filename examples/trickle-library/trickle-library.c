@@ -39,7 +39,7 @@ static uip_ipaddr_t ipaddr;     /* destination: link-local all-nodes multicast *
  * Every NEW_TOKEN_INTERVAL clock ticks each node will generate a new token
  * with probability 1/NEW_TOKEN_PROB. This is controlled by etimer et.
  */
-#define NEW_TOKEN_INTERVAL  10 * CLOCK_SECOND
+#define NEW_TOKEN_INTERVAL  20 * CLOCK_SECOND // sending rate halved for formation simulation
 #define NEW_TOKEN_PROB      64 /** MJB04 **/
 #define BUFFER_SIZE         32 /** MJB04 **/
 static uint16_t token;
